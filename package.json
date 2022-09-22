@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "deploy": "npm run build && scp -r ./build/* movie@51.250.83.47/home/mesto/react-mesto-api-full/backend"
   },
   "repository": {
     "type": "git",
