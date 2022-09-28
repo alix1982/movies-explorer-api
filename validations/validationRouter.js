@@ -1,5 +1,6 @@
 const { celebrate, Joi } = require('celebrate');
-const { link } = require('../utils/regulatoryExpression');
+const validator = require('validator');
+const { mesErrCelebrateImage400, mesErrCelebrateTrailerLink400, mesErrCelebrateThumbnail400 } = require('../utils/messageServer');
 
 module.exports.validationRouterCreateUser = celebrate({
   body: Joi.object().keys({
@@ -30,11 +31,20 @@ module.exports.validationRouterCreateMovie = celebrate({
     duration: Joi.number().required(),
     year: Joi.string().required(),
     description: Joi.string().required(),
-    image: Joi.string().required().regex(link),
-    trailerLink: Joi.string().required().regex(link),
+    image: Joi.string().required().custom((values, helpers) => {
+      if (validator.isURL(values)) { return values; }
+      return helpers.message(mesErrCelebrateImage400);
+    }),
+    trailerLink: Joi.string().required().custom((values, helpers) => {
+      if (validator.isURL(values)) { return values; }
+      return helpers.message(mesErrCelebrateTrailerLink400);
+    }),
     nameRU: Joi.string().required(),
     nameEN: Joi.string().required(),
-    thumbnail: Joi.string().required().regex(link),
+    thumbnail: Joi.string().required().custom((values, helpers) => {
+      if (validator.isURL(values)) { return values; }
+      return helpers.message(mesErrCelebrateThumbnail400);
+    }),
     movieId: Joi.number().required(),
     // owner: Joi.string().required().hex().length(24),
   }),

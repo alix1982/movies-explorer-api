@@ -1,12 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const routes = require('./routes/index');
-const { centralErrors } = require('./errors/centralErrors');
+const { centralErrors } = require('./controllers/centralErrors');
+let { mongoUrl } = require('./utils/configDev');
 
 const { PORT = 3000, NODE_ENV } = process.env;
 const app = express();
 
-let mongoUrl = 'mongodb://127.0.0.1:27017/moviesdb';
+// let mongoUrl = 'mongodb://127.0.0.1:27017/moviesdb';
 const { MONGO_URL } = process.env;
 if (NODE_ENV === 'production') { mongoUrl = MONGO_URL; }
 

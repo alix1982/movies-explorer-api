@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { link } = require('../utils/regulatoryExpression');
+const validator = require('validator');
 
 const movieSchema = new mongoose.Schema({
   country: {
@@ -25,17 +25,17 @@ const movieSchema = new mongoose.Schema({
   image: {
     type: String,
     required: true,
-    validate: link,
+    validate: validator.isURL,
   },
   trailerLink: {
     type: String,
     required: true,
-    validate: link,
+    validate: validator.isURL,
   },
   thumbnail: {
     type: String,
     required: true,
-    validate: link,
+    validate: validator.isURL,
   },
   owner: {
     type: mongoose.Schema.Types.ObjectId,

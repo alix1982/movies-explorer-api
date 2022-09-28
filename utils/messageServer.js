@@ -1,0 +1,17 @@
+module.exports = {
+  mesErrUpdateUser404: 'Пользователь не найден!',
+  mesErrValidation400: 'Ошибка валидации',
+  mesErrUpdateUser409: 'Неправильная почта',
+  mesErrcreateUser409: 'Такой пользователь уже существует',
+  mesErrLogin401: 'Неправильные почта или пароль',
+  mesLogin: 'Всё верно!',
+  mesErrDeleteMovie404: 'Карточка не найдена',
+  mesErrDeleteMovie403: 'Удаление не своей карточки',
+  mesErrDeleteMovie400: 'Некорректный id',
+  mesErr500: 'На сервере произошла ошибка',
+  mesErrAuth401: 'Необходима авторизация',
+  mesErrRouterErrors404: 'Не верный путь',
+  mesErrCelebrateImage400: 'Поле с постером не корретно',
+  mesErrCelebrateTrailerLink400: 'Поле с трейлером не корретно',
+  mesErrCelebrateThumbnail400: 'Поле с миниатюрей постера не корретно',
+};

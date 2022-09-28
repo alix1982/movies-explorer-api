@@ -5,6 +5,9 @@ const User = require('../models/user');
 const IncorrectDataErrorStatus = require('../errors/incorrectDataErrorStatus');
 const ConflictUser = require('../errors/conflictUser');
 const NoAuthErr = require('../errors/noAuthErr');
+const {
+  mesErrValidation400, mesErrcreateUser409, mesErrLogin401, mesLogin,
+} = require('../utils/messageServer');
 
 module.exports.createUser = (req, res, next) => {
   bcrypt.hash(req.body.password, 10)
@@ -22,11 +25,11 @@ module.exports.createUser = (req, res, next) => {
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        next(new IncorrectDataErrorStatus('Ошибка валидации'));
+        next(new IncorrectDataErrorStatus(mesErrValidation400));
         return;
       }
       if (err.code === 11000) {
-        next(new ConflictUser('Такой пользователь уже существует'));
+        next(new ConflictUser(mesErrcreateUser409));
         return;
       }
       next(err);
@@ -39,12 +42,12 @@ module.exports.login = (req, res, next) => {
   User.findOne({ email }).select('+password')
     .then((user) => {
       if (user === null) {
-        throw new NoAuthErr('Неправильные почта или пароль');
+        throw new NoAuthErr(mesErrLogin401);
       }
       return bcrypt.compare(password, user.password)
         .then((matched) => {
           if (!matched) {
-            throw new NoAuthErr('Неправильные почта или пароль');
+            throw new NoAuthErr(mesErrLogin401);
           }
           const token = jwt.sign(
             { _id: user._id },
@@ -52,7 +55,7 @@ module.exports.login = (req, res, next) => {
             { expiresIn: '7d' },
           );
           // const token = jwt.sign({ _id: user._id }, 'some-secret-key', { expiresIn: '7d' });
-          res.send({ token, message: 'Всё верно!' });
+          res.send({ token, message: mesLogin });
         });
     })
     .catch(next);

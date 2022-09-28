@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
-const { email } = require('../utils/regulatoryExpression');
+const validator = require('validator');
 
 const userSchema = new mongoose.Schema({
   email: {
     type: String,
-    validate: email,
+    validate: validator.isEmail,
     required: true,
     unique: true,
   },
