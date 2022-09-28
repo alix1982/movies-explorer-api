@@ -3,7 +3,6 @@ const Movie = require('../models/movie');
 const IncorrectDataErrorStatus = require('../errors/incorrectDataErrorStatus');
 const NoDateErrorStatus = require('../errors/noDateErrorStatus');
 const ConflictId = require('../errors/conflictId');
-// const DefaultErrorStatus = require('../errors/defaultErrorStatus');
 
 module.exports.getMovies = (req, res, next) => {
   Movie.find({})

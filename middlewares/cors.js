@@ -1,7 +1,9 @@
+const helmet = require('helmet');
+
 const cors = (req, res, next) => {
   const { origin } = req.headers;
   const { method } = req;
-  const requestHeaders = req.headers['access-control-request-headers'];
+  // const requestHeaders = req.headers['access-control-request-headers'];
   const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
 
   res.header('Access-Control-Allow-Origin', origin);
@@ -9,7 +11,7 @@ const cors = (req, res, next) => {
 
   if (method === 'OPTIONS') {
     res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
-    res.header('Access-Control-Allow-Headers', requestHeaders);
+    res.header('Access-Control-Allow-Headers', helmet()); // requestHeaders
 
     return res.end();
   }
