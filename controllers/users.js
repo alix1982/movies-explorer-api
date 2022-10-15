@@ -22,6 +22,7 @@ module.exports.updateUser = (req, res, next) => {
       res.send(user);
     })
     .catch((err) => {
+      console.log(err);
       if (err.name === 'ValidationError') {
         next(new IncorrectDataErrorStatus(mesErrValidation400));
         return;

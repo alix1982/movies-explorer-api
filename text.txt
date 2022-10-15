@@ -10,5 +10,5 @@
     "nameRU": "название на русском",
     "nameEN": "название на английском",
     "thumbnail": "https://practicum.yandex.ru/",
-    "movieId": "123456789012345678901234"
+    "movieId": "1"
 }
