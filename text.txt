@@ -1,0 +1,14 @@
+проверка
+{
+    "country": "нечто",
+    "director": "некто",
+    "duration": "2 часа",
+    "year": "2020",
+    "description": "не знаю что",
+    "image": "https://practicum.yandex.ru/",
+    "trailer": "https://practicum.yandex.ru/",
+    "nameRU": "название на русском",
+    "nameEN": "название на английском",
+    "thumbnail": "https://practicum.yandex.ru/",
+    "movieId": "1"
+}
