@@ -9,7 +9,8 @@ const routes = require('./routes/index');
 const { centralErrors } = require('./controllers/centralErrors');
 let { mongoUrl } = require('./utils/configDev');
 
-const { PORT = 3000, NODE_ENV } = process.env;
+// const { PORT = 3001, NODE_ENV } = process.env; // для локального хоста
+const { PORT = 3000, NODE_ENV } = process.env; // для публичного сервера
 const app = express();
 const { MONGO_URL } = process.env;
 if (NODE_ENV === 'production') { mongoUrl = MONGO_URL; }
