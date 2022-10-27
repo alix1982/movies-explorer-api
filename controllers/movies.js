@@ -32,6 +32,8 @@ module.exports.createMovie = (req, res, next) => {
     thumbnail,
     movieId,
     owner: req.user._id,
+    // owner,
+
   })
     .then((movie) => {
       res.send(movie);
