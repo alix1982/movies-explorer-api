@@ -23,7 +23,7 @@
 
 ## Запуск сервера
 ### Для запуска удаленно:
-- предварительно установить [Node.js](https://nodejs.org/en/download/) и [MangoDB](https://mongodb.prakticum-team.ru/try/download/community),
+- предварительно установить [Node.js](https://nodejs.org/en/download/) и [MongoDB](https://mongodb.prakticum-team.ru/try/download/community),
 - залить проект на облачный сервер (скопировать бекенд часть на сервер через консоль),
 - установить зависимости (npm i),
 - установить и настроить работу pm2,
@@ -31,7 +31,7 @@
 - установить сертификаты SSL.
 
 ### Для запуска локально:
-- предварительно установить [Node.js](https://nodejs.org/en/download/) и [MangoDB](https://mongodb.prakticum-team.ru/try/download/community),
+- предварительно установить [Node.js](https://nodejs.org/en/download/) и [MongoDB](https://mongodb.prakticum-team.ru/try/download/community),
 - клонировать проект c gitHub,
 - настроить работу сервера локально на порту 3001 (задать переменной PORT значение 3001 в файле `app.js` (строка 12-13)),
 - установить зависимости (npm i),
